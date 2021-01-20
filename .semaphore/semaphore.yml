@@ -25,5 +25,9 @@ blocks:
           - cache restore
           - pip install --cache-dir .pip_cache -r requirements.txt
       jobs:
-        - name: 'Job #1'
-          commands: []
+        - name: Unit tests
+          commands:
+            - cd martor_demo
+            - python manage.py makemigrations
+            - python manage.py migrate
+            - python manage.py test
